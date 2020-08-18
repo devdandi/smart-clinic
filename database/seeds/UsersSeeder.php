@@ -1,0 +1,27 @@
+<?php
+
+use Illuminate\Database\Seeder;
+use App\User;
+use Faker\Factory;
+use Illuminate\Support\Facades\Hash;
+
+
+class UsersSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $faker = Faker\Factory::create();
+        User::insert([
+            'name' => $faker->name,
+            'email' => $faker->email,
+            'email_verified_at' => now(),
+            'password' => Hash::make('dandi129')
+        ]);
+
+    }
+}
